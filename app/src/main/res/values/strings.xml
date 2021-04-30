@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">The_Companion</string>
+    <string name="an_app_that_never_lets_you_doubt">An app that never lets you doubt!</string>
+    <string name="button">button</string>
+    <string name="get_started"><![CDATA[Get started ->]]></string>
+    <string name="welcome_to_the_companion">Welcome to The Companion</string>
+    <string name="sign_in_and_stay_connected">Sign in and stay connected</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="register_below">Register below</string>
+    <string name="disclaimer_it_s_a_task_manager_and_not_a_therapeutic_tool">Disclaimer: It\'s a task manager and not a therapeutic tool</string>
+    <string name="email_username">Email/Username</string>
+    <string name="confirm_password">Confirm password</string>
+
+
+</resources>
