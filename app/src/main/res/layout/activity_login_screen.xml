@@ -105,7 +105,7 @@
         tools:targetApi="lollipop" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonSignUp"
         android:layout_width="357dp"
         android:layout_height="57dp"
         android:background="@drawable/button2"
