@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "350737037717",
-    "project_id": "thecompanion-6b1c2",
-    "storage_bucket": "thecompanion-6b1c2.appspot.com"
+    "project_number": "1072322604102",
+    "project_id": "thecompanionandroid",
+    "storage_bucket": "thecompanionandroid.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350737037717:android:4b0e3fe78929b3c7065e9c",
+        "mobilesdk_app_id": "1:1072322604102:android:b5991b76e239b36c706e47",
         "android_client_info": {
           "package_name": "com.example.the_companion"
         }
       },
       "oauth_client": [
         {
-          "client_id": "350737037717-itndkhef8g3hak2v2hfacadva50de63d.apps.googleusercontent.com",
+          "client_id": "1072322604102-lm3i60qmoovj8ojmoltnruhldtblnijb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDn8J2ZzilXi6mVDuTJFUaV_yNcRj13DGc"
+          "current_key": "AIzaSyCk_4RQpOWayzLEbSZXy4YUrhGaabnSOO4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "350737037717-itndkhef8g3hak2v2hfacadva50de63d.apps.googleusercontent.com",
+              "client_id": "1072322604102-lm3i60qmoovj8ojmoltnruhldtblnijb.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "350737037717-k0pbujj5ne6p84deafinfs0g4ij08ujm.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.theCompanion"
-              }
             }
           ]
         }
