@@ -12,6 +12,11 @@
     <string name="disclaimer_it_s_a_task_manager_and_not_a_therapeutic_tool">Disclaimer: It\'s a task manager and not a therapeutic tool</string>
     <string name="email_username">Email/Username</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="how_are_you_feeling_today">How are you feeling today?</string>
+    <string name="next">Next</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="tip_of_the_day">Tip of the Day</string>
+    <string name="be_willing_to_accept_risk">Be willing to accept risk</string>
 
 
 </resources>

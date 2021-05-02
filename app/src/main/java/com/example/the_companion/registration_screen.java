@@ -150,7 +150,11 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
                         Snackbar.make(findViewById(R.id.view), "Successful", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         //FirebaseUser user = mAuth.getCurrentUser();
-                    } else {
+                        Intent intent = new Intent(registration_screen.this, PrimaryDashboard.class);
+                        startActivity(intent);
+                    }
+
+                    else {
                         // If sign in fails, display a message to the user.
                         Snackbar.make(findViewById(R.id.view), email + password, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
