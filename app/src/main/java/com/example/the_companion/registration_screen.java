@@ -2,6 +2,7 @@ package com.example.the_companion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,6 +26,8 @@ public class registration_screen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registration_screen);
 
+        configureNextDashboard();
+
         //animations
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
@@ -41,5 +44,15 @@ public class registration_screen extends AppCompatActivity {
         textInputLayout3.setAnimation(bottomAnim);
         textInputLayout4.setAnimation(bottomAnim);
 
+    }
+
+    private void configureNextDashboard() {
+        Button nextDashboard = (Button) findViewById(R.id.button4);
+        nextDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(registration_screen.this, Add_task.class));
+            }
+        });
     }
 }
