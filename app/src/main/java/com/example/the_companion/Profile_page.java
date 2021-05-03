@@ -25,7 +25,7 @@ public class Profile_page extends AppCompatActivity {
         textview1 = findViewById(R.id.textView5);
         textview2 = findViewById(R.id.textView6);
 
-        YoYo.with(Techniques.Shake).duration(2500).repeat(100).playOn(textview);
+        YoYo.with(Techniques.Bounce).duration(2000).repeat(100).playOn(textview);
         YoYo.with(Techniques.Pulse).duration(2500).repeat(100).playOn(textview1);
         YoYo.with(Techniques.Pulse).duration(2500).repeat(100).playOn(textview2);
     }
