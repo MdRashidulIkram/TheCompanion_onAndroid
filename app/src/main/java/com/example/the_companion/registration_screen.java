@@ -1,6 +1,10 @@
 package com.example.the_companion;
 
-import android.content.ActivityNotFoundException;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -43,7 +47,13 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registration_screen);
+
         mAuth = FirebaseAuth.getInstance();
+
+
+        configureNextDashboard();
+
+
         //animations
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
@@ -162,5 +172,15 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
                     }
                 });
         // [END create_user_with_email]
+    }
+
+    private void configureNextDashboard() {
+        Button nextDashboard = (Button) findViewById(R.id.buttonSignUp);
+        nextDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(registration_screen.this, Add_task.class));
+            }
+        });
     }
 }

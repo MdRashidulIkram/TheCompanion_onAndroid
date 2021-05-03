@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.The_Companion">
+<<<<<<< HEAD
         <activity android:name=".PrimaryDashboard"></activity>
         <activity android:name=".AddTaskActivity" />
         <activity android:name=".DashboardActivity" />
+=======
+        <activity android:name=".Add_task"></activity>
+        <activity android:name=".Profile_page" />
+>>>>>>> 73fdd8a48d1b2195a85e282c4a0a5bec0bb8eab5
         <activity android:name=".registration_screen" />
         <activity android:name=".login_screen" />
         <activity android:name=".MainActivity">
