@@ -24,11 +24,30 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster"
         android:text="@string/dashboard"
-        android:textSize="30sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view5" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:fontFamily="@font/diplomata"
+        android:text="+"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFEB3B"
+        android:textSize="35dp"
+        app:backgroundTint="#0CD490"
+        app:iconTint="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:layout_constraintVertical_bias="0.945" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

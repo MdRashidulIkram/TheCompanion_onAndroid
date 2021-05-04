@@ -19,6 +19,7 @@ public class Add_task extends AppCompatActivity {
 
 
         configureNextAddtask();
+        return_dash();
     }
 
     private void configureNextAddtask(){
@@ -27,6 +28,15 @@ public class Add_task extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Add_task.this, Profile_page.class));
+            }
+        });
+    }
+    private void return_dash(){
+        ImageView home = (ImageView) findViewById(R.id.imageView4);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Add_task.this,Dashboard.class));
             }
         });
     }
