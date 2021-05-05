@@ -23,15 +23,16 @@
         android:layout_width="416dp"
         android:layout_height="567dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bordercorner"
+        android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.493" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/register_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -85,7 +86,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/sign_in_button"
         android:layout_width="357dp"
         android:layout_height="57dp"
         android:background="@drawable/button2"
@@ -105,7 +106,8 @@
         tools:targetApi="lollipop" />
 
     <Button
-        android:id="@+id/buttonSignUp"
+
+        android:id="@+id/sign_up_button"
         android:layout_width="357dp"
         android:layout_height="57dp"
         android:background="@drawable/button2"
@@ -118,13 +120,12 @@
         android:textColor="#0cd490"
         android:textSize="20sp"
         android:textStyle="bold"
-
         app:backgroundTint="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
         app:layout_constraintVertical_bias="0.212"
         tools:targetApi="lollipop" />
 

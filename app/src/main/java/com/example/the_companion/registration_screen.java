@@ -1,6 +1,7 @@
 package com.example.the_companion;
 
-import android.content.ActivityNotFoundException;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -43,18 +44,18 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registration_screen);
+        configureNextDashboard();
+
         mAuth = FirebaseAuth.getInstance();
         //animations
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         //Hooks
         view2 = findViewById(R.id.view2);
-        btnSignUp = findViewById(R.id.buttonSignUp);
+        btnSignUp = findViewById(R.id.sign_up_button);
         email = findViewById(R.id.textBoxEmail);
         password = findViewById(R.id.textBoxPassword);
         confirmPassword = findViewById(R.id.textBoxConfirmPass);
-        text = findViewById(R.id.textView2);
-
         view2.setAnimation(bottomAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
@@ -65,10 +66,7 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
             registerUser();
         });
 
-        text.setOnClickListener(v -> {
-            Toast.makeText(registration_screen.this, "Button pressed", Toast.LENGTH_SHORT);
 
-        });
     }
 
     @Override
@@ -162,5 +160,15 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
                     }
                 });
         // [END create_user_with_email]
+    }
+
+    private void configureNextDashboard() {
+        Button nextDashboard = (Button) findViewById(R.id.sign_up_button);
+        nextDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(registration_screen.this, Dashboard.class));
+            }
+        });
     }
 }

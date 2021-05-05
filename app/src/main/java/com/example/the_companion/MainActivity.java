@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Hooks
         view = findViewById(R.id.view2);
-        image = findViewById(R.id.imageView);
-        welcome = findViewById(R.id.textView);
-        slogan = findViewById(R.id.textView2);
-        start = findViewById(R.id.button);
+        image = findViewById(R.id.mainlogo);
+        welcome = findViewById(R.id.register_text);
+        slogan = findViewById(R.id.disclaimer_text);
+        start = findViewById(R.id.get_started_button);
 
 
         image.setAnimation(topAnim);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureNextButton() {
-        Button nextButton = (Button) findViewById(R.id.button);
+        Button nextButton = (Button) findViewById(R.id.get_started_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
