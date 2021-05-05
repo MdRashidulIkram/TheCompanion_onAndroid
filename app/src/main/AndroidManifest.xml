@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.The_Companion">
+<<<<<<< HEAD
         <activity android:name=".about_us" />
         <activity android:name=".Chart" />
         <activity android:name=".Dashboard" />
         <activity android:name=".Add_task" />
         <activity android:name=".Profile_page" />
+=======
+        <activity android:name=".PrimaryDashboard"></activity>
+        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".DashboardActivity" />
+>>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
         <activity android:name=".registration_screen" />
         <activity android:name=".login_screen" />
         <activity android:name=".MainActivity">

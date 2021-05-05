@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".Dashboard">
 
     <View
@@ -49,5 +50,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintVertical_bias="0.945" />
+=======
+    tools:context=".DashboardActivity">
+>>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
 
 </androidx.constraintlayout.widget.ConstraintLayout>

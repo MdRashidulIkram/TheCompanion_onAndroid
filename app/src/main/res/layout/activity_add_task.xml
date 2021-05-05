@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".Add_task"
     android:background="#0cd490">
 
@@ -112,5 +113,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+=======
+    tools:context=".AddTaskActivity">
+>>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
 
 </androidx.constraintlayout.widget.ConstraintLayout>
