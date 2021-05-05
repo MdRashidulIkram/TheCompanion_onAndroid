@@ -6,9 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".about_us">
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
 </androidx.constraintlayout.widget.ConstraintLayout>

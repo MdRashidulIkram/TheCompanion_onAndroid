@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".chart">
 
-=======
+
+
     tools:context=".Chart">
 
     <com.github.mikephil.charting.charts.PieChart
@@ -18,7 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
->>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,13 +39,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
-<<<<<<< HEAD
-    implementation 'com.github.medyo:android-about-page:1.2.6'
-=======
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
     implementation 'com.github.medyo:android-about-page:1.2.6'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.android.support:multidex:1.0.3'
->>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
+
 
 }

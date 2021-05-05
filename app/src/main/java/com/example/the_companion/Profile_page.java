@@ -28,10 +28,9 @@ public class Profile_page extends AppCompatActivity {
         textview2 = findViewById(R.id.donation_text);
 
         return_dash();
-<<<<<<< HEAD
-=======
+
         weekly_report();
->>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
+
         contact_us();
 
         YoYo.with(Techniques.Bounce).duration(2000).repeat(100).playOn(textview);
@@ -69,13 +68,5 @@ public class Profile_page extends AppCompatActivity {
         });
     }
 
-    private void contact_us(){
-        TextView contact = (TextView) findViewById(R.id.textView5);
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Profile_page.this, about_us.class));
-            }
-        });
-    }
+
 }
