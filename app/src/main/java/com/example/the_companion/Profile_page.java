@@ -28,6 +28,7 @@ public class Profile_page extends AppCompatActivity {
         textview2 = findViewById(R.id.textView6);
 
         return_dash();
+        contact_us();
 
         YoYo.with(Techniques.Bounce).duration(2000).repeat(100).playOn(textview);
         YoYo.with(Techniques.Pulse).duration(2500).repeat(100).playOn(textview1);
@@ -39,6 +40,16 @@ public class Profile_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile_page.this, Dashboard.class));
+            }
+        });
+    }
+
+    private void contact_us(){
+        TextView contact = (TextView) findViewById(R.id.textView5);
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile_page.this, about_us.class));
             }
         });
     }

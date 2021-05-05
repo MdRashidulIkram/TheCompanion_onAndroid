@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.The_Companion">
-        <activity android:name=".Dashboard"></activity>
+        <activity android:name=".chart"></activity>
+        <activity android:name=".about_us" />
+        <activity android:name=".Dashboard" />
         <activity android:name=".Add_task" />
         <activity android:name=".Profile_page" />
         <activity android:name=".registration_screen" />
