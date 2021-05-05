@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class Add_task extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class Add_task extends AppCompatActivity {
     }
 
     private void configureNextAddtask(){
-        ImageView nextAddtask = (ImageView) findViewById(R.id.imageView5);
+        ImageView nextAddtask = (ImageView) findViewById(R.id.user_icon);
         nextAddtask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +31,7 @@ public class Add_task extends AppCompatActivity {
         });
     }
     private void return_dash(){
-        ImageView home = (ImageView) findViewById(R.id.imageView4);
+        ImageView home = (ImageView) findViewById(R.id.home_icon);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

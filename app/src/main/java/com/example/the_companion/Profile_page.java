@@ -23,9 +23,9 @@ public class Profile_page extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_page);
 
-        textview = findViewById(R.id.textView3);
-        textview1 = findViewById(R.id.textView5);
-        textview2 = findViewById(R.id.textView6);
+        textview = findViewById(R.id.weekly_report_text);
+        textview1 = findViewById(R.id.contact_us_text);
+        textview2 = findViewById(R.id.donation_text);
 
         return_dash();
         weekly_report();
@@ -36,7 +36,7 @@ public class Profile_page extends AppCompatActivity {
         YoYo.with(Techniques.Pulse).duration(2500).repeat(100).playOn(textview2);
     }
     private void return_dash(){
-        ImageView home = (ImageView) findViewById(R.id.imageView2);
+        ImageView home = (ImageView) findViewById(R.id.home_icon);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +57,7 @@ public class Profile_page extends AppCompatActivity {
     }
 
     private void contact_us(){
-        TextView contact = (TextView) findViewById(R.id.textView5);
+        TextView contact = (TextView) findViewById(R.id.contact_us_text);
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

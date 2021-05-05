@@ -34,8 +34,8 @@ public class login_screen extends AppCompatActivity {
 
         //Hooks
         view2 = findViewById(R.id.view2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
+        button3 = findViewById(R.id.sign_in_button);
+        button4 = findViewById(R.id.sign_up_button);
         textInputLayout = findViewById(R.id.textInputLayout);
         textInputLayout3 = findViewById(R.id.textInputLayout3);
 
@@ -47,7 +47,7 @@ public class login_screen extends AppCompatActivity {
     }
 
     private void configureRegButton(){
-        Button regButton = (Button) findViewById(R.id.button4);
+        Button regButton = (Button) findViewById(R.id.sign_up_button);
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

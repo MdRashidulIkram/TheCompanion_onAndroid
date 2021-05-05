@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.723"/>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/home_icon"
         android:layout_width="56dp"
         android:layout_height="52dp"
         android:contentDescription="@string/home_icon"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/icon_home2" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/user_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/user_icon"
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/icon_user2" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/camera_icon"
         android:layout_width="163dp"
         android:layout_height="154dp"
         android:contentDescription="@string/camera_icon"
@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/camera_icon" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/done_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/done"
@@ -69,11 +69,11 @@
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/view4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/camera_icon"
         app:layout_constraintVertical_bias="0.071" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/add_description_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee_inline"
@@ -88,7 +88,7 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/plus_icon"
         android:layout_width="37dp"
         android:layout_height="41dp"
         android:contentDescription="@string/plus_icon"
@@ -101,11 +101,11 @@
         app:srcCompat="@drawable/plus_icon" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/add_new_task_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster"
-        android:text="Add New Task"
+        android:text="@string/add_new_task"
         android:textSize="35sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/view4"
