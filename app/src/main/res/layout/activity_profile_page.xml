@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster"
@@ -92,7 +92,7 @@
         app:srcCompat="@drawable/icon_user2" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/taskbuttontext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_your_name"

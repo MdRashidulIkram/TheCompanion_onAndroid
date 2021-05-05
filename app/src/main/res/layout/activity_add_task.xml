@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.723"/>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/taskbackground"
         android:layout_width="56dp"
         android:layout_height="52dp"
         android:contentDescription="@string/home_icon"
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/icon_user2" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/camera"
         android:layout_width="163dp"
         android:layout_height="154dp"
         android:contentDescription="@string/camera_icon"
@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/camera_icon" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/done"
@@ -69,8 +69,23 @@
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/view4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintTop_toBottomOf="@+id/camera"
+        app:layout_constraintVertical_bias="0.367" />
+
+    <Button
+        android:id="@+id/picbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Picture"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#0cd490"
+        app:backgroundTint="#1D212D"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/camera"
+        app:layout_constraintVertical_bias="0.097" />
 
     <TextView
         android:id="@+id/textView4"
@@ -88,7 +103,7 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/taskbutton"
         android:layout_width="37dp"
         android:layout_height="41dp"
         android:contentDescription="@string/plus_icon"
