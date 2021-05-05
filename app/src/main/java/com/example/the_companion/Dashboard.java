@@ -22,7 +22,7 @@ public class Dashboard extends AppCompatActivity {
 
 }
 private void Dashboard(){
-    add_button = findViewById(R.id.button5);
+    add_button = findViewById(R.id.plus_button);
     add_button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.The_Companion">
+<<<<<<< HEAD
         <activity android:name=".chart"></activity>
         <activity android:name=".about_us" />
+=======
+        <activity android:name=".about_us"></activity>
+        <activity android:name=".Chart" />
+>>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
         <activity android:name=".Dashboard" />
         <activity android:name=".Add_task" />
         <activity android:name=".Profile_page" />

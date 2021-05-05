@@ -23,11 +23,15 @@ public class Profile_page extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_page);
 
-        textview = findViewById(R.id.textView3);
-        textview1 = findViewById(R.id.textView5);
-        textview2 = findViewById(R.id.textView6);
+        textview = findViewById(R.id.weekly_report_text);
+        textview1 = findViewById(R.id.contact_us_text);
+        textview2 = findViewById(R.id.donation_text);
 
         return_dash();
+<<<<<<< HEAD
+=======
+        weekly_report();
+>>>>>>> a03c22cd8a96bddbf1fa1527a5354e0c846d4f33
         contact_us();
 
         YoYo.with(Techniques.Bounce).duration(2000).repeat(100).playOn(textview);
@@ -35,11 +39,32 @@ public class Profile_page extends AppCompatActivity {
         YoYo.with(Techniques.Pulse).duration(2500).repeat(100).playOn(textview2);
     }
     private void return_dash(){
-        ImageView home = (ImageView) findViewById(R.id.imageView2);
+        ImageView home = (ImageView) findViewById(R.id.home_icon);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile_page.this, Dashboard.class));
+            }
+        });
+
+    }
+    private void weekly_report(){
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile_page.this,Chart.class));
+            }
+        });
+
+
+    }
+
+    private void contact_us(){
+        TextView contact = (TextView) findViewById(R.id.contact_us_text);
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile_page.this, about_us.class));
             }
         });
     }

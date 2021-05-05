@@ -33,7 +33,7 @@ public class registration_screen extends AppCompatActivity {
 
         //Hooks
         view2 = findViewById(R.id.view2);
-        button4 = findViewById(R.id.button4);
+        button4 = findViewById(R.id.sign_up_button);
         textInputLayout = findViewById(R.id.textInputLayout);
         textInputLayout3 = findViewById(R.id.textInputLayout3);
         textInputLayout4 = findViewById(R.id.textInputLayout4);
@@ -47,7 +47,7 @@ public class registration_screen extends AppCompatActivity {
     }
 
     private void configureNextDashboard() {
-        Button nextDashboard = (Button) findViewById(R.id.button4);
+        Button nextDashboard = (Button) findViewById(R.id.sign_up_button);
         nextDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
