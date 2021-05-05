@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class CustomArrayAdapter extends ArrayAdapter<Task> {
 
+
     private ArrayList<Task> tasks;
     private Context context;
 
@@ -26,6 +27,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Task> {
         this.tasks = tasks;
         this.context = context;
     }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
@@ -41,5 +43,8 @@ public class CustomArrayAdapter extends ArrayAdapter<Task> {
         taskDescription.setText(task.getTaskDescription());
         return view;
     }
+
+
+
 
 }
