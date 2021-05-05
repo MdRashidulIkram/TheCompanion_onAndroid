@@ -106,11 +106,8 @@
         tools:targetApi="lollipop" />
 
     <Button
-<<<<<<< HEAD
+
         android:id="@+id/sign_up_button"
-=======
-        android:id="@+id/buttonSignUp"
->>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
         android:layout_width="357dp"
         android:layout_height="57dp"
         android:background="@drawable/button2"
@@ -123,7 +120,6 @@
         android:textColor="#0cd490"
         android:textSize="20sp"
         android:textStyle="bold"
-
         app:backgroundTint="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

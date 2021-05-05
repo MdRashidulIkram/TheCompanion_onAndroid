@@ -1,11 +1,7 @@
 package com.example.the_companion;
 
-<<<<<<< HEAD
-import androidx.appcompat.app.AppCompatActivity;
 
-=======
-import android.content.ActivityNotFoundException;
->>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -48,31 +44,18 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registration_screen);
-<<<<<<< HEAD
-
         configureNextDashboard();
 
-=======
         mAuth = FirebaseAuth.getInstance();
->>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
         //animations
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         //Hooks
         view2 = findViewById(R.id.view2);
-<<<<<<< HEAD
-        button4 = findViewById(R.id.sign_up_button);
-        textInputLayout = findViewById(R.id.textInputLayout);
-        textInputLayout3 = findViewById(R.id.textInputLayout3);
-        textInputLayout4 = findViewById(R.id.textInputLayout4);
-=======
-        btnSignUp = findViewById(R.id.buttonSignUp);
+        btnSignUp = findViewById(R.id.sign_up_button);
         email = findViewById(R.id.textBoxEmail);
         password = findViewById(R.id.textBoxPassword);
         confirmPassword = findViewById(R.id.textBoxConfirmPass);
-        text = findViewById(R.id.textView2);
->>>>>>> 7a57b3173d7bbdd72d15a600292c6bd74c3c84f7
-
         view2.setAnimation(bottomAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
@@ -83,10 +66,7 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
             registerUser();
         });
 
-        text.setOnClickListener(v -> {
-            Toast.makeText(registration_screen.this, "Button pressed", Toast.LENGTH_SHORT);
 
-        });
     }
 
     @Override
