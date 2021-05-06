@@ -36,7 +36,6 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
     View view2;
     Button btnSignUp, backButton;
     EditText email, password, confirmPassword;
-    TextView text;
 
     private FirebaseAuth mAuth;
     @Override
@@ -56,6 +55,7 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         email = findViewById(R.id.textBoxEmail);
         password = findViewById(R.id.textBoxPassword);
         confirmPassword = findViewById(R.id.textBoxConfirmPass);
+
         view2.setAnimation(bottomAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
