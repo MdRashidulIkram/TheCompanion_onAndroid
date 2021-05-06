@@ -10,8 +10,9 @@ public class Task {
         this.taskImage = taskImage;
         this.userId = userId;
     }
-    public Task(){
-
+    public Task(){}
+    public Task(String taskDescription){
+        this.taskDescription = taskDescription;
     }
     public Task(String taskDescription, String taskImage) {
         this.taskDescription = taskDescription;

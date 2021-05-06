@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class AddTaskActivity extends AppCompatActivity {
 Button addTask;
 ListView list;
-ArrayList<String> tasksList = new ArrayList<>();
+ArrayList<Task> tasksList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,16 +23,16 @@ ArrayList<String> tasksList = new ArrayList<>();
         setContentView(R.layout.activity_task_list);
         list = (ListView)findViewById(R.id.listView);
 
-        tasksList.add("Get Pizza");
-        tasksList.add("Lock the door");
-        tasksList.add("Cheese");
-        tasksList.add("Turn off the faucet");
-        tasksList.add("go to sleep");
-        tasksList.add("Cheese");
-        tasksList.add("Turn off the faucet");
-        tasksList.add("go to sleep");
+        tasksList.add(new Task("Get Pizza"));
+        tasksList.add(new Task("Lock the door"));
+        tasksList.add(new Task("Cheese"));
+        tasksList.add(new Task("Turn off the faucet"));
+        tasksList.add(new Task("go to sleep"));
+        tasksList.add(new Task("Cheese"));
+        tasksList.add(new Task("Turn off the faucet"));
+        tasksList.add(new Task("go to sleep"));
 
-        ArrayAdapter taskAdapter= new ArrayAdapter(this, android.R.layout.simple_list_item_1,tasksList);
+        ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
         nextTaskPage();
