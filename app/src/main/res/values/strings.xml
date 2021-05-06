@@ -25,6 +25,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="add_new_task">Add New Task</string>
     <string name="plus">+</string>
+    <string name="task_list">Task List</string>
 
 
 </resources>
