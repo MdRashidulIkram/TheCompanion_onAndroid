@@ -4,19 +4,20 @@ public class Task {
     private String taskDescription;
     private String taskImage;
     private String userId;
+    private String taskId;
 
-    public Task(String taskDescription, String taskImage, String userId) {
+    public Task(String taskDescription, String taskImage, String taskId) {
         this.taskDescription = taskDescription;
         this.taskImage = taskImage;
-        this.userId = userId;
+        this.taskId = taskId;
     }
     public Task(){}
     public Task(String taskDescription){
         this.taskDescription = taskDescription;
     }
-    public Task(String taskDescription, String taskImage) {
+    public Task(String taskId, String taskDescription) {
         this.taskDescription = taskDescription;
-        this.taskImage = taskImage;
+        this.taskId = taskId;
     }
 
     public String getTaskDescription() {

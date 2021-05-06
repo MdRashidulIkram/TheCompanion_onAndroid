@@ -17,7 +17,7 @@
             android:layout_width="348dp"
             android:layout_height="51dp"
             android:layout_marginBottom="32dp"
-            android:background="#78CFB0"
+            android:background="#3BFF9A"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
