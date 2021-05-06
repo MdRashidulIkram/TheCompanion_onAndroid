@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
@@ -15,10 +14,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="158dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="183dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="186dp" />
 
     <TextView
         android:id="@+id/taskList"
@@ -46,10 +45,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="614dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="621dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="34dp"
+        android:gravity="center|center_vertical|fill_vertical"
         android:text="+"
         android:textColor="#FFEB3B"
         android:textSize="50sp"
@@ -64,9 +64,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="171dp"
-        android:layout_marginTop="597dp"
+        android:layout_marginTop="600dp"
         android:layout_marginEnd="181dp"
-        android:layout_marginBottom="115dp"
+        android:layout_marginBottom="112dp"
         android:fontFamily="@font/lobster"
         android:text=" Add"
         android:textColor="#3F51B5"
@@ -79,12 +79,30 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="-10dp"
         android:fontFamily="@font/lobster"
         android:text="New Task"
         android:textColor="#4CAF50"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="676dp"
+        android:background="#0cd490"
+        android:fontFamily="@font/almendra"
+        android:gravity="center"
+        android:text="Dashboard"
+        android:textColor="#0C0A0A"
+        android:textSize="30sp" />
 
 </RelativeLayout>
