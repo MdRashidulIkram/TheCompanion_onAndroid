@@ -32,6 +32,9 @@ public class Add_task extends AppCompatActivity {
     Button doneButton;
     EditText taskDescription;
     FirebaseFirestore db;
+    private Bitmap bitmap;
+    private boolean picTaken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +57,13 @@ public class Add_task extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(taskDescription.getText().toString().equals("")){
-                    Snackbar.make(v,"Add a task please", Snackbar.LENGTH_LONG)
-                            .setAction("Action",null).show();
+                    taskDescription.setError("Task Description required");
+                    return;
+                }
+
+                if (!picTaken){
+                    Snackbar.make(v, "No Image added", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                     return;
                 }
 
@@ -94,12 +102,10 @@ public class Add_task extends AppCompatActivity {
         if(ContextCompat.checkSelfPermission(Add_task.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(Add_task.this, new String[]{Manifest.permission.CAMERA},100);
         }
-        take.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,100);
-            }
+
+        take.setOnClickListener(v -> {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent,100);
         });
 
     }
@@ -109,7 +115,8 @@ public class Add_task extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==100){
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            this.bitmap = (Bitmap) data.getExtras().get("data");
+            this.picTaken = true;
             camlogo.setImageBitmap(bitmap);
         }
     }
