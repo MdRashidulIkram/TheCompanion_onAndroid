@@ -28,6 +28,14 @@ public class Task {
         this.taskDescription = taskDescription;
     }
 
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
     public String getTaskImage() {
         return taskImage;
     }
