@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, login_screen.class));
+                startActivity(new Intent(MainActivity.this, AddTaskActivity.class));
             }
         });
     }

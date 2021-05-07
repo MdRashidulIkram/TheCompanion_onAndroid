@@ -43,7 +43,7 @@ public class Profile_page extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile_page.this, Dashboard.class));
+                startActivity(new Intent(Profile_page.this, AddTaskActivity.class));
             }
         });
 

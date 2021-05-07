@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,6 +33,9 @@ public class AddTaskActivity extends AppCompatActivity {
     ListView list;
     ArrayList<Task> tasksList = new ArrayList<>();
     FirebaseFirestore db;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -111,6 +115,17 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
         nextTaskPage();
+        goProfile();
+    }
+
+    private void goProfile(){
+        ImageView goProfile = (ImageView) findViewById(R.id.user_icon);
+        goProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddTaskActivity.this, Profile_page.class));
+            }
+        });
     }
 
     private void nextTaskPage(){

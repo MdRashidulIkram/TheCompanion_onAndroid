@@ -8,16 +8,12 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="429dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="155dp"
         android:layout_marginEnd="13dp"
-        android:layout_marginBottom="186dp" />
+        android:layout_marginBottom="160dp" />
 
     <TextView
         android:id="@+id/taskList"
@@ -27,10 +23,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="127dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginEnd="135dp"
-        android:layout_marginBottom="576dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="596dp"
         android:fontFamily="@font/almendra"
         android:gravity="center"
         android:text=" Task List"
@@ -39,70 +35,73 @@
 
     <Button
         android:id="@+id/addtaskbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/diplomata"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="621dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="34dp"
-        android:gravity="center|center_vertical|fill_vertical"
+        android:layout_marginBottom="40dp"
         android:text="+"
-        android:textColor="#FFEB3B"
-        android:textSize="50sp"
-        app:backgroundTint="#3BFF9A" />
+        android:textAlignment="center"
+        android:textColor="#FFFFEB3B"
+        android:textSize="35sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#0cd490" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="112dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/addtaskbutton"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/lobster"
         android:text=" Add"
         android:textColor="#3F51B5"
-        android:textSize="18sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="133dp"
-        android:layout_height="43dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="154dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/lobster"
         android:text="New Task"
         android:textColor="#4CAF50"
-        android:textSize="18sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="676dp"
+        android:fontFamily="@font/lobster"
+        android:layout_height="60dp"
         android:background="#0cd490"
-        android:fontFamily="@font/almendra"
         android:gravity="center"
         android:text="Dashboard"
         android:textColor="#0C0A0A"
         android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/home_icon"
+        android:layout_width="59dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/icon_home2" />
+
+    <ImageView
+        android:id="@+id/user_icon"
+        android:layout_width="59dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/icon_user2" />
+
 
 </RelativeLayout>
