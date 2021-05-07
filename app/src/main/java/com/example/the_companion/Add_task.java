@@ -75,13 +75,8 @@ public class Add_task extends AppCompatActivity {
 
                 db.collection("Tasks").document(taskId)
                         .set(data)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
-                            }
-                        })
+                        .addOnSuccessListener(aVoid -> Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show())
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
@@ -107,9 +102,7 @@ public class Add_task extends AppCompatActivity {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent,100);
         });
-
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
@@ -134,7 +127,7 @@ public class Add_task extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Add_task.this,AddTaskActivity.class));
+                finish();
             }
         });
     }

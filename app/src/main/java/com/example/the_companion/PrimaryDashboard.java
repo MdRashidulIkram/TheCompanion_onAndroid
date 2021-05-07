@@ -23,23 +23,15 @@ public class PrimaryDashboard extends AppCompatActivity {
 
     private void goDashboard(){
         nextButton = findViewById(R.id.next);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PrimaryDashboard.this, AddTaskActivity.class));
-                getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                setContentView(R.layout.activity_primary_dashboard);
-                nextTaskList();
-            }
+        nextButton.setOnClickListener(v -> {
+            startActivity(new Intent(PrimaryDashboard.this, AddTaskActivity.class));
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            setContentView(R.layout.activity_primary_dashboard);
+            nextTaskList();
         });
     }
     private void nextTaskList(){
         Button nextButton = (Button) findViewById(R.id.next);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PrimaryDashboard.this,AddTaskActivity.class));
-            }
-        });
+        nextButton.setOnClickListener(v -> startActivity(new Intent(PrimaryDashboard.this,AddTaskActivity.class)));
     }
 }
