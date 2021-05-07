@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,20 +19,31 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Add_task extends AppCompatActivity {
     ImageView camlogo;
     Button take;
     Button doneButton;
     EditText taskDescription;
+    StorageReference storageReference;
+    FirebaseStorage storage;
+    private Uri filePath;
+
     FirebaseFirestore db;
     private Bitmap bitmap;
     private boolean picTaken;
@@ -44,7 +57,8 @@ public class Add_task extends AppCompatActivity {
         doneButton = findViewById(R.id.done);
         db = FirebaseFirestore.getInstance();
         FirebaseFirestore.setLoggingEnabled(true);
-
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         useCamera();
 
@@ -106,11 +120,72 @@ public class Add_task extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode==100){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100){
             this.bitmap = (Bitmap) data.getExtras().get("data");
             this.picTaken = true;
             camlogo.setImageBitmap(bitmap);
+            if (filePath != null) {
+                ProgressDialog progressDialog
+                        = new ProgressDialog(this);
+                progressDialog.setTitle("Uploading...");
+                progressDialog.show();
+                filePath = data.getData();
+                // Defining the child of storageReference
+                StorageReference ref
+                        = storageReference.child(
+                        "images/"
+                                + UUID.randomUUID().toString());
+
+                // adding listeners on upload
+                // or failure of image
+                ref.putFile(filePath)
+                        .addOnSuccessListener(
+                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                                    @Override
+                                    public void onSuccess(
+                                            UploadTask.TaskSnapshot taskSnapshot) {
+
+                                        // Image uploaded successfully
+                                        // Dismiss dialog
+                                        progressDialog.dismiss();
+                                        Toast.makeText(Add_task.this, "Image Uploaded!!", Toast.LENGTH_SHORT)
+                                                .show();
+                                    }
+                                })
+
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                // Error, Image not uploaded
+                                progressDialog.dismiss();
+                                Toast
+                                        .makeText(Add_task.this,
+                                                "Failed " + e.getMessage(),
+                                                Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        })
+                        .addOnProgressListener(
+                                new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                                    // Progress Listener for loading
+                                    // percentage on the dialog box
+                                    @Override
+                                    public void onProgress(
+                                            UploadTask.TaskSnapshot taskSnapshot) {
+                                        double progress
+                                                = (100.0
+                                                * taskSnapshot.getBytesTransferred()
+                                                / taskSnapshot.getTotalByteCount());
+                                        progressDialog.setMessage(
+                                                "Uploaded "
+                                                        + (int) progress + "%");
+                                    }
+                                });
+            }
         }
     }
     private void configureNextAddtask(){

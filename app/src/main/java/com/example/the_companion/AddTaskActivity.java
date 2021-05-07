@@ -53,6 +53,8 @@ public class AddTaskActivity extends AppCompatActivity {
 
 
 
+
+
         ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
