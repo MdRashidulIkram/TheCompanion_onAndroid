@@ -175,7 +175,7 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         nextDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(registration_screen.this, Dashboard.class));
+                startActivity(new Intent(registration_screen.this, AddTaskActivity.class));
             }
         });
     }
