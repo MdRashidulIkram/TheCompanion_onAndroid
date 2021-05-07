@@ -1,6 +1,8 @@
 package com.example.the_companion;
 
 
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +48,9 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
         configureNextDashboard();
 
         mAuth = FirebaseAuth.getInstance();
+        configureNextDashboard();
+
+
         //animations
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
@@ -163,7 +168,10 @@ public class registration_screen extends AppCompatActivity implements View.OnCli
     }
 
     private void configureNextDashboard() {
+
         Button nextDashboard = (Button) findViewById(R.id.sign_up_button);
+
+
         nextDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

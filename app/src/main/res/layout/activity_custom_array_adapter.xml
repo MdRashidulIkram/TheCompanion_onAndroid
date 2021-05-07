@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    tools:context=".CustomArrayAdapter">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="10dp"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/taskContent"
+            android:layout_width="350dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_vertical"
+            android:background="#0cd490"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/taskdescription"
+                android:fontFamily="@font/almendra"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:textAlignment="center"
+                android:layout_marginTop="15sp"
+                android:text="Task"
+                android:textColor="#070707"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/amount"
+                app:layout_constraintLeft_toRightOf="@+id/foodType">
+
+
+            </TextView>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
