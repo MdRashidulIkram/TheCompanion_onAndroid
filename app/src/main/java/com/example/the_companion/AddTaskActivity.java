@@ -1,17 +1,23 @@
 package com.example.the_companion;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -66,6 +72,44 @@ public class AddTaskActivity extends AppCompatActivity {
                 taskAdapter.notifyDataSetChanged();
             }
         });
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                view.setSelected(true);
+                final int selectedItem = position;
+                final Task task = tasksList.get(selectedItem);
+
+                new AlertDialog.Builder(AddTaskActivity.this)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setTitle("Are you sure")
+                        .setMessage("Would you like to delete this item?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                db.collection("Tasks").document(task.getTaskId()).delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("Okay", "DocumentSnapshot sucessfully deleted");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w("Error", "Error deleting song");
+                                            }
+                                        });
+                                tasksList.remove(selectedItem);
+                                taskAdapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return false;
+            }
+        });
         nextTaskPage();
     }
 
@@ -78,4 +122,6 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
