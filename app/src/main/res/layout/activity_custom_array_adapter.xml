@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    tools:context=".CustomArrayAdapter">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="348dp"
+            android:layout_height="51dp"
+            android:layout_marginBottom="32dp"
+            android:background="#3BFF9A"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/taskContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+
+
+                android:layout_marginLeft="60dp"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/taskdescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+
+
+                    android:layout_marginRight="50dp"
+                    android:gravity="center_vertical"
+                    android:text="Task"
+
+                    android:textColor="#070707"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/amount"
+                    app:layout_constraintLeft_toRightOf="@+id/foodType">
+
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

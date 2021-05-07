@@ -23,6 +23,7 @@ public class Profile_page extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_page);
 
+
         textview = findViewById(R.id.weekly_report_text);
         textview1 = findViewById(R.id.contact_us_text);
         textview2 = findViewById(R.id.donation_text);
