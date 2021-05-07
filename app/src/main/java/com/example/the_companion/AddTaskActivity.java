@@ -48,12 +48,7 @@ public class AddTaskActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         final CollectionReference itemCollectionReference = db.collection("Tasks");
-
-
-        tasksList.add(new Task("Get Pizza"));
-        tasksList.add(new Task("Lock the door"));
-
-
+        
         ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
