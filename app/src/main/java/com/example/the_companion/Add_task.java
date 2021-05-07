@@ -58,7 +58,7 @@ public class Add_task extends AppCompatActivity {
                             .setAction("Action",null).show();
                     return;
                 }
-
+              
                 HashMap<String, Object> data = new HashMap<>();
                 String description = taskDescription.getText().toString();
                 String taskId = String.valueOf(Timestamp.now().hashCode());
