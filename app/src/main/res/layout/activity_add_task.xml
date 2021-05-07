@@ -70,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/view4"
         app:layout_constraintTop_toBottomOf="@+id/camera_icon"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.227" />
 
     <TextView
         android:id="@+id/add_description_text"
