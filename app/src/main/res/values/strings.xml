@@ -29,7 +29,12 @@
     <string name="next">Next</string>
     <string name="tip_of_the_day">Tip of the Day</string>
     <string name="be_willing_to_accept_risk">Be willing to accept risk</string>
-
+    <string name="task_description">Task Description</string>
+    <string name="task_image">task_image</string>
+    <string name="congratulation_the_task_is_completed">Congratulation the task is completed</string>
+    <string name="time_of_completion_10_00_am_5_7_2021">Time of Completion : 10:00 AM, 5/7/2021</string>
+    <string name="homr_icon">homr_icon</string>
+    <string name="user_icon">user_icon</string>
 
 
 </resources>
