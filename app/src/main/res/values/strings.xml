@@ -35,6 +35,9 @@
     <string name="task">Task</string>
     <string name="take_picture">Take Picture</string>
     <string name="write_your_task">Write your task...</string>
+    <string name="task_description">Task Description</string>
+    <string name="task_image">task image</string>
+    <string name="congratulation_the_task_is_completed">Congratulation the task is completed</string>
 
 
 </resources>
