@@ -35,6 +35,8 @@ public class Add_task extends AppCompatActivity {
     FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String input = taskDescription.getText().toString();
+
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_add_task);
@@ -43,7 +45,6 @@ public class Add_task extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         FirebaseFirestore.setLoggingEnabled(true);
 
-
         useCamera();
 
         configureNextAddtask();
@@ -51,32 +52,34 @@ public class Add_task extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HashMap<String, Object> data = new HashMap<>();
-                String description = taskDescription.getText().toString();
-                String taskId = String.valueOf(Timestamp.now().hashCode());
-                data.put("task_description", description);
-                data.put("task_id", taskId);
 
-                db.collection("Tasks").document(taskId)
-                        .set(data)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(v, "Failed to add to firebase", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
-                            }
-                        });
+                    HashMap<String, Object> data = new HashMap<>();
+                    String description = taskDescription.getText().toString();
+                    String taskId = String.valueOf(Timestamp.now().hashCode());
+                    data.put("task_description", description);
+                    data.put("task_id", taskId);
+
+                    db.collection("Tasks").document(taskId)
+                            .set(data)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Snackbar.make(v, "Failed to add to firebase", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }
+                            });
 
 
-                startActivity(new Intent(Add_task.this,AddTaskActivity.class));
-            }
+                    startActivity(new Intent(Add_task.this, AddTaskActivity.class));
+                }
+
         });
     }
     private void useCamera(){
