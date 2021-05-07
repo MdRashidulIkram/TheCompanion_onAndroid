@@ -53,6 +53,12 @@ public class Add_task extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(taskDescription.getText().toString().equals("")){
+                    Snackbar.make(v,"Add a task please", Snackbar.LENGTH_LONG)
+                            .setAction("Action",null).show();
+                    return;
+                }
+
                 HashMap<String, Object> data = new HashMap<>();
                 String description = taskDescription.getText().toString();
                 String taskId = String.valueOf(Timestamp.now().hashCode());
