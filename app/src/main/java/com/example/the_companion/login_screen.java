@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,7 +34,7 @@ public class login_screen extends AppCompatActivity {
     Button btnSignIn, btnSignUp;
     EditText email, password;
     private FirebaseAuth mAuth;
-
+    private TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class login_screen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
 
         nextPrimaryDashboard();
+        goforgotPassword();
 
         mAuth = FirebaseAuth.getInstance();
         //animations
@@ -53,12 +55,14 @@ public class login_screen extends AppCompatActivity {
         btnSignUp = findViewById(R.id.sign_up_button);
         email = findViewById(R.id.textBoxEmail);
         password = findViewById(R.id.textBoxPassword);
+        forgotPassword = findViewById(R.id.forgotpassword);
 
         view2.setAnimation(bottomAnim);
         btnSignIn.setAnimation(bottomAnim);
         btnSignUp.setAnimation(bottomAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
+        forgotPassword.setAnimation(bottomAnim);
 
         btnSignIn.setOnClickListener(v -> {
 
@@ -104,6 +108,16 @@ public class login_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(login_screen.this, registration_screen.class));
+            }
+        });
+    }
+
+    private void goforgotPassword(){
+        forgotPassword = findViewById(R.id.forgotpassword);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(login_screen.this, forgotPassword.class));
             }
         });
     }
