@@ -49,7 +49,13 @@ public class AddTaskActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         final CollectionReference itemCollectionReference = db.collection("Tasks");
-        
+
+
+
+
+
+
+
         ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
