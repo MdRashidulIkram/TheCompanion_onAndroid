@@ -30,6 +30,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AddTaskActivity extends AppCompatActivity {
     ListView list;
@@ -69,6 +70,7 @@ public class AddTaskActivity extends AppCompatActivity {
                         tasksList.add(task);
                     }
                 }
+                //Collections.reverse(tasksList);
                 taskAdapter.notifyDataSetChanged();
             }
         });
