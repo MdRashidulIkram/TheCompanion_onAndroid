@@ -39,8 +39,9 @@ public class CustomArrayAdapter extends ArrayAdapter<Task> {
         Task task = tasks.get(position);
 
         TextView taskDescription = view.findViewById(R.id.taskdescription);
-
+        TextView taskDate = view.findViewById(R.id.time_stamp);
         taskDescription.setText(task.getTaskDescription());
+        taskDate.setText(task.getDateAndTime());
         return view;
     }
 

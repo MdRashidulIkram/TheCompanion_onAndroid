@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 public class Task_check extends AppCompatActivity {
-    TextView taskDescription;
+    TextView taskDescription, taskDate;
     String compulsion,taskid;
     TextView warning;
     Task task;
@@ -37,6 +37,7 @@ public class Task_check extends AppCompatActivity {
         String desc = getIntent().getSerializableExtra("TaskDescription").toString();
         taskid = getIntent().getSerializableExtra("TaskId").toString();
         this.compulsion = getIntent().getSerializableExtra("Compulsion").toString();
+        String timestamp = getIntent().getSerializableExtra("TaskTime").toString();
         task = new Task(taskid,desc);
 
         task.setCompulsioncheck(this.compulsion);
@@ -44,7 +45,11 @@ public class Task_check extends AppCompatActivity {
             warning.setText("Hey you have checked this task " + this.compulsion + " times!" + " Have a coffee!");
         }
         taskDescription = findViewById(R.id.task_description);
+        taskDate = findViewById(R.id.time_stamp_text);
         taskDescription.setText(desc);
+        if (!timestamp.equals(null)){
+            taskDate.setText(timestamp);
+        }
         return_dash(collectionReference);
         return_profile();
     }

@@ -84,7 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:inputType="textWebPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

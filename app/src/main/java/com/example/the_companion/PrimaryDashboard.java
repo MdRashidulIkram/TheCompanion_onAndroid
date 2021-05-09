@@ -31,7 +31,7 @@ public class PrimaryDashboard extends AppCompatActivity {
         });
     }
     private void nextTaskList(){
-        Button nextButton = (Button) findViewById(R.id.next);
+        Button nextButton = findViewById(R.id.next);
         nextButton.setOnClickListener(v -> startActivity(new Intent(PrimaryDashboard.this,AddTaskActivity.class)));
     }
 }

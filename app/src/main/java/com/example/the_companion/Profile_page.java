@@ -40,33 +40,18 @@ public class Profile_page extends AppCompatActivity {
     }
     private void return_dash(){
         ImageView home = (ImageView) findViewById(R.id.home_icon);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Profile_page.this, AddTaskActivity.class));
-            }
-        });
+        home.setOnClickListener(v -> startActivity(new Intent(Profile_page.this, AddTaskActivity.class)));
 
     }
     private void weekly_report(){
-        textview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Profile_page.this,Chart.class));
-            }
-        });
+        textview.setOnClickListener(v -> startActivity(new Intent(Profile_page.this,Chart.class)));
 
 
     }
 
     private void contact_us(){
-        TextView contact = (TextView) findViewById(R.id.contact_us_text);
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Profile_page.this, about_us.class));
-            }
-        });
+        TextView contact = findViewById(R.id.contact_us_text);
+        contact.setOnClickListener(v -> startActivity(new Intent(Profile_page.this, about_us.class)));
     }
 
 

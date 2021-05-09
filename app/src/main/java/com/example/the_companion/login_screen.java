@@ -65,6 +65,7 @@ public class login_screen extends AppCompatActivity {
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
         forgotPassword.setAnimation(bottomAnim);
+
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

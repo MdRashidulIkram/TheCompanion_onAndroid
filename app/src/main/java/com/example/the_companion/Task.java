@@ -6,6 +6,16 @@ public class Task {
     private String userId;
     private String taskId;
     private String compulsioncheck;
+    private String dateAndTime;
+
+    public String getDateAndTime() {
+        return dateAndTime;
+    }
+
+    public void setDateAndTime(String dateAndTime) {
+        this.dateAndTime = dateAndTime;
+    }
+
     public String getCompulsioncheck() {
         return compulsioncheck;
     }

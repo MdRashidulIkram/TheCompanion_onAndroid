@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void configureNextButton() {
         Button nextButton = (Button) findViewById(R.id.get_started_button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, login_screen.class));
-            }
-        });
+        nextButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, login_screen.class)));
     }
 }
