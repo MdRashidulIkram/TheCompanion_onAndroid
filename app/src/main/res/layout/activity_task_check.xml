@@ -68,18 +68,18 @@
 
     <TextView
         android:id="@+id/congratz_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="113dp"
         android:fontFamily="@font/almendra_bold"
         android:text="@string/congratulation_the_task_is_completed"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#058F0A"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/task_image"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <TextView
         android:id="@+id/time_stamp_text"
