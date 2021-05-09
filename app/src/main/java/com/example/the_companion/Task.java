@@ -5,6 +5,15 @@ public class Task {
     private String taskImage;
     private String userId;
     private String taskId;
+    private String compulsioncheck;
+    public String getCompulsioncheck() {
+        return compulsioncheck;
+    }
+
+    public void setCompulsioncheck(String compulsioncheck) {
+        this.compulsioncheck = compulsioncheck;
+    }
+
 
     public Task(String taskDescription, String taskImage, String taskId) {
         this.taskDescription = taskDescription;

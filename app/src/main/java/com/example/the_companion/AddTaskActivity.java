@@ -71,8 +71,9 @@ public class AddTaskActivity extends AppCompatActivity {
                         Log.d("Sample",String.valueOf(doc.getData().get("task_id")));
                         String taskId = (String) doc.getData().get("task_id");
                         String description = (String) doc.getData().get("task_description");
-
+                        String compulsioncounter = (String) doc.getData().get("task_compulsion");
                         Task task = new Task(taskId, description);
+                        task.setCompulsioncheck(compulsioncounter);
                         tasksList.add(task);
                     }
                 }
@@ -123,6 +124,8 @@ public class AddTaskActivity extends AppCompatActivity {
 
             Intent intent = new Intent(AddTaskActivity.this, Task_check.class);
             intent.putExtra("TaskDescription", this.task.getTaskDescription());
+            intent.putExtra("Compulsion",String.valueOf(Integer.parseInt(this.task.getCompulsioncheck())+1));
+            intent.putExtra("TaskId",this.task.getTaskId());
             startActivity(intent);
         });
 

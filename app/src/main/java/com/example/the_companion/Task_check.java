@@ -1,36 +1,59 @@
 package com.example.the_companion;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.anychart.ui.contextmenu.Item;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class Task_check extends AppCompatActivity {
     TextView taskDescription;
+    String compulsion,taskid;
+    Task task;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_check);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.db = FirebaseFirestore.getInstance();
+        final CollectionReference collectionReference = db.collection("Tasks");
+
+
         String desc = getIntent().getSerializableExtra("TaskDescription").toString();
+        taskid = getIntent().getSerializableExtra("TaskId").toString();
+        task = new Task(taskid,desc);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            this.compulsion = extras.getString("task_compulsion","task");
+        }
+        task.setCompulsioncheck(this.compulsion);
+
+        //task.setCompulsioncheck(Long.parseLong(this.compulsion));
         taskDescription = findViewById(R.id.task_description);
         taskDescription.setText(desc);
-        return_dash();
+        return_dash(collectionReference);
         return_profile();
     }
-    private void return_dash(){
+    private void return_dash(CollectionReference collectionReference){
         ImageView home = (ImageView) findViewById(R.id.home_icon);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InputTask(task,v,collectionReference);
                 startActivity(new Intent(Task_check.this, AddTaskActivity.class));
             }
         });
@@ -44,5 +67,26 @@ public class Task_check extends AppCompatActivity {
             }
         });
     }
+    public void InputTask(Task task, View view, CollectionReference collectionReference) {
 
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("task_compulsion",compulsion);
+        data.put("taskId", taskid);
+        collectionReference
+                .document(taskid)
+                .update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Hello","Data addition successful");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("Hello", "Data addition failed" + e.toString());
+                    }
+                });
+
+    }
 }
