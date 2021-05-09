@@ -41,6 +41,7 @@
     <string name="time_of_completion_10_00am_5_7_2021">Time of completion: 10:00AM, 5/7/2021</string>
     <string name="check">check</string>
     <string name="time">time</string>
+    <string name="forget_password_click_here">Forget Password? Click Here</string>
 
 
 </resources>

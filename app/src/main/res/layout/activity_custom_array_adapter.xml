@@ -33,8 +33,9 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="57dp"
+                android:layout_width="52dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
                 android:contentDescription="@string/check"
                 android:src="@drawable/check" />
 
@@ -46,14 +47,14 @@
 
     <TextView
         android:id="@+id/taskdescription"
-        android:layout_width="179dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15sp"
         android:fontFamily="@font/almendra"
         android:text="@string/task"
         android:textAlignment="center"
         android:textColor="#070707"
-        android:textSize="22sp"
+        android:textSize="24sp"
         app:layout_anchor="@+id/constraintLayout"
         app:layout_anchorGravity="center"
         app:layout_constraintBottom_toTopOf="@+id/amount"
@@ -67,11 +68,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="sans-serif"
         android:text="@string/time"
         android:textAlignment="center"
-        app:layout_anchor="@+id/taskdescription"
-        android:fontFamily="@font/almendra"
-        app:layout_anchorGravity="end|bottom" />
+        android:textColor="#FDFCF9"
+        app:layout_anchor="@+id/constraintLayout"
+        app:layout_anchorGravity="bottom|center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -72,19 +72,20 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="357dp"
         android:layout_height="54dp"
-        app:passwordToggleEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.110000014">
+        app:layout_constraintVertical_bias="0.110000014"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textBoxPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:inputType="textWebPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -104,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintVertical_bias="0.184"
+        app:layout_constraintVertical_bias="0.18"
         tools:targetApi="lollipop" />
 
     <Button
@@ -122,14 +123,28 @@
         android:textColor="#0cd490"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:backgroundTint="#fff"
+        app:backgroundTint="#E9F2F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
-        app:layout_constraintVertical_bias="0.212"
+        app:layout_constraintVertical_bias="0.251"
         tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="286dp"
+        android:layout_height="27dp"
+        android:text="@string/forget_password_click_here"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_button"
+        app:layout_constraintVertical_bias="0.811" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

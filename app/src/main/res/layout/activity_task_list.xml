@@ -31,7 +31,7 @@
         android:gravity="center"
         android:text=" Task List"
         android:textColor="#6A44AE"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <Button
         android:id="@+id/addtaskbutton"
@@ -82,7 +82,7 @@
         android:gravity="center"
         android:text="Dashboard"
         android:textColor="#0C0A0A"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <ImageView
         android:id="@+id/home_icon"

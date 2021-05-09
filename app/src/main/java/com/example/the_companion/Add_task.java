@@ -2,6 +2,7 @@ package com.example.the_companion;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -32,6 +34,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -68,6 +72,7 @@ public class Add_task extends AppCompatActivity {
 
 
         doneButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 if(taskDescription.getText().toString().equals("")){
@@ -80,13 +85,17 @@ public class Add_task extends AppCompatActivity {
                             .setAction("Action", null).show();
                     return;
                 }
-
+              
                 HashMap<String, Object> data = new HashMap<>();
                 String description = taskDescription.getText().toString();
                 String taskId = String.valueOf(Timestamp.now().hashCode());
+                String taskcompulsion = "0";
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+                LocalDateTime now = LocalDateTime.now();
+                data.put("task_compulsion", taskcompulsion);
                 data.put("task_description", description);
                 data.put("task_id", taskId);
-
+                data.put("task_time", dtf.format(now));
                 db.collection("Tasks").document(taskId)
                         .set(data)
                         .addOnSuccessListener(aVoid -> Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)

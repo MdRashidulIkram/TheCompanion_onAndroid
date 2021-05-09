@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,13 +29,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class login_screen extends AppCompatActivity {
 
+    private static final String TAG = "LOGIN" ;
     //variables
     Animation bottomAnim;
     View view2;
     Button btnSignIn, btnSignUp;
     EditText email, password;
     private FirebaseAuth mAuth;
-
+    private TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class login_screen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
 
         nextPrimaryDashboard();
+        goforgotPassword();
 
         mAuth = FirebaseAuth.getInstance();
         //animations
@@ -53,13 +57,26 @@ public class login_screen extends AppCompatActivity {
         btnSignUp = findViewById(R.id.sign_up_button);
         email = findViewById(R.id.textBoxEmail);
         password = findViewById(R.id.textBoxPassword);
+        forgotPassword = findViewById(R.id.forgotpassword);
 
         view2.setAnimation(bottomAnim);
         btnSignIn.setAnimation(bottomAnim);
         btnSignUp.setAnimation(bottomAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
+        forgotPassword.setAnimation(bottomAnim);
 
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            Intent i = new Intent(login_screen.this, PrimaryDashboard.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        } else {
+            // User is signed out
+            Log.d(TAG, "onAuthStateChanged:signed_out");
+        }
         btnSignIn.setOnClickListener(v -> {
 
             loginUser();
@@ -104,6 +121,16 @@ public class login_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(login_screen.this, registration_screen.class));
+            }
+        });
+    }
+
+    private void goforgotPassword(){
+        forgotPassword = findViewById(R.id.forgotpassword);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(login_screen.this, forgotPassword.class));
             }
         });
     }

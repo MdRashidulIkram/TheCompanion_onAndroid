@@ -30,6 +30,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AddTaskActivity extends AppCompatActivity {
     ListView list;
@@ -50,11 +51,6 @@ public class AddTaskActivity extends AppCompatActivity {
         final CollectionReference itemCollectionReference = db.collection("Tasks");
 
 
-
-
-
-
-
         ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
@@ -70,11 +66,15 @@ public class AddTaskActivity extends AppCompatActivity {
                         Log.d("Sample",String.valueOf(doc.getData().get("task_id")));
                         String taskId = (String) doc.getData().get("task_id");
                         String description = (String) doc.getData().get("task_description");
-
+                        String compulsioncounter = (String) doc.getData().get("task_compulsion");
+                        String taskDate = (String)doc.getData().get("task_time");
                         Task task = new Task(taskId, description);
+                        task.setDateAndTime(taskDate);
+                        task.setCompulsioncheck(compulsioncounter);
                         tasksList.add(task);
                     }
                 }
+                //Collections.reverse(tasksList);
                 taskAdapter.notifyDataSetChanged();
             }
         });
@@ -116,11 +116,12 @@ public class AddTaskActivity extends AppCompatActivity {
 
         list.setOnItemClickListener((parent, view, position, id) -> {
             this.task = (Task) list.getItemAtPosition(position);
-            Snackbar.make(view, "Going to task check", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
 
             Intent intent = new Intent(AddTaskActivity.this, Task_check.class);
             intent.putExtra("TaskDescription", this.task.getTaskDescription());
+            intent.putExtra("Compulsion",String.valueOf(Integer.parseInt(this.task.getCompulsioncheck())+1));
+            intent.putExtra("TaskId",this.task.getTaskId());
+            intent.putExtra("TaskTime", this.task.getDateAndTime());
             startActivity(intent);
         });
 
