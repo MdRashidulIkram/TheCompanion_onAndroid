@@ -11,7 +11,7 @@ public class Task {
         this.taskImage = taskImage;
         this.taskId = taskId;
     }
-    public Task(){}
+    public Task(Integer integer, String description){}
     public Task(String taskDescription){
         this.taskDescription = taskDescription;
     }
@@ -19,7 +19,7 @@ public class Task {
         this.taskDescription = taskDescription;
         this.taskId = taskId;
     }
-
+    public Task(){};
     public String getTaskDescription() {
         return taskDescription;
     }

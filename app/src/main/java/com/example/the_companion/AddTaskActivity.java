@@ -50,11 +50,6 @@ public class AddTaskActivity extends AppCompatActivity {
         final CollectionReference itemCollectionReference = db.collection("Tasks");
 
 
-
-
-
-
-
         ArrayAdapter taskAdapter= new CustomArrayAdapter(this,tasksList);
         list.setAdapter(taskAdapter);
 
@@ -116,8 +111,6 @@ public class AddTaskActivity extends AppCompatActivity {
 
         list.setOnItemClickListener((parent, view, position, id) -> {
             this.task = (Task) list.getItemAtPosition(position);
-            Snackbar.make(view, "Going to task check", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
 
             Intent intent = new Intent(AddTaskActivity.this, Task_check.class);
             intent.putExtra("TaskDescription", this.task.getTaskDescription());
