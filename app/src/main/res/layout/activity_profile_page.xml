@@ -101,7 +101,7 @@
         android:fontFamily="@font/bungee_inline"
         android:textSize="22sp"
         android:inputType="textPersonName"
-        android:text="@string/enter_your_name"
+        android:hint="@string/enter_your_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"

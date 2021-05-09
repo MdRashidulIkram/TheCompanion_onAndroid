@@ -71,12 +71,24 @@ public class Profile_page extends AppCompatActivity {
 
     }
     private void weekly_report(){
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile_page.this, Chart.class));
+            }
+        });
         textview.setOnClickListener(v -> startActivity(new Intent(Profile_page.this,Chart.class)));
 
 
     }
 
     private void contact_us(){
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile_page.this, about_us.class));
+            }
+        });
         TextView contact = findViewById(R.id.contact_us_text);
         contact.setOnClickListener(v -> startActivity(new Intent(Profile_page.this, about_us.class)));
     }
