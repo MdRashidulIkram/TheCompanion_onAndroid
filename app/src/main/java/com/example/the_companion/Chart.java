@@ -8,15 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -34,7 +28,10 @@ import java.util.ArrayList;
 public class Chart extends AppCompatActivity {
     private PieChart pieChart;
     FirebaseFirestore db;
+    Integer compulsionCount;
 
+    ArrayList<PieEntry> entries = new ArrayList<>();
+    ArrayList<Task> tasksList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,7 @@ public class Chart extends AppCompatActivity {
 
         pieChart = findViewById(R.id.activity_main_piechart);
         setupPieChart();
-        loadPieChartData(itemCollectionReference);
+        this.compulsionCount = loadPieChartData(itemCollectionReference);
 
 
     }
@@ -67,15 +64,12 @@ public class Chart extends AppCompatActivity {
         l.setDrawInside(false);
         l.setEnabled(true);
     }
-    private void loadPieChartData(CollectionReference itemCollectionReference) {
-        ArrayList<PieEntry> entries = new ArrayList<>();
-        Integer compulsionCount;
-        ArrayList<Task> tasksList = new ArrayList<>();
+
+    private Integer loadPieChartData(CollectionReference itemCollectionReference) {
+
+        final Integer[] compulsion = {null};
 
         itemCollectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
-
-
-            private Integer compulsionCount;
 
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
@@ -88,20 +82,28 @@ public class Chart extends AppCompatActivity {
                         Log.d("Sample",String.valueOf(doc.getData().get("task_id")));
                         String taskCompulsion = (String) doc.getData().get("task_compulsion");
                         String description = (String) doc.getData().get("task_description");
-                        this.compulsionCount += Integer.valueOf(taskCompulsion);
+                        compulsion[0] += Integer.valueOf(taskCompulsion);
                         Task task = new Task();
                         task.setTaskDescription(description);
-                        task.set
+                        task.setCompulsioncheck(taskCompulsion);
                         tasksList.add(task);
                     }
                 }
             }
         });
-        entries.add(new PieEntry(0.2f, "Lock the door"));
-        entries.add(new PieEntry(0.15f, "car door"));
-        entries.add(new PieEntry(0.10f, "turn off faucet"));
-        entries.add(new PieEntry(0.25f, "turn off the oven"));
-        entries.add(new PieEntry(0.3f, "Beating Farshed"));
+
+        return compulsion[0];
+    }
+
+    private void setUpPieChart(){
+        for (int i = 0; i < tasksList.size(); i++){
+            entries.add(new PieEntry((float)Integer.valueOf(tasksList.get(i).getCompulsioncheck())/ this.compulsionCount, tasksList.get(i).getTaskDescription()));
+        }
+//        entries.add(new PieEntry(0.2f, "Lock the door"));
+//        entries.add(new PieEntry(0.15f, "car door"));
+//        entries.add(new PieEntry(0.10f, "turn off faucet"));
+//        entries.add(new PieEntry(0.25f, "turn off the oven"));
+//        entries.add(new PieEntry(0.3f, "Beating Farshed"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
