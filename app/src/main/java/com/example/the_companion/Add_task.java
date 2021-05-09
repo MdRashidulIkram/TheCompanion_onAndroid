@@ -84,7 +84,8 @@ public class Add_task extends AppCompatActivity {
                 HashMap<String, Object> data = new HashMap<>();
                 String description = taskDescription.getText().toString();
                 String taskId = String.valueOf(Timestamp.now().hashCode());
-                data.put("task_compulsion",0);
+                String taskcompulsion = "0";
+                data.put("task_compulsion", taskcompulsion);
                 data.put("task_description", description);
                 data.put("task_id", taskId);
 

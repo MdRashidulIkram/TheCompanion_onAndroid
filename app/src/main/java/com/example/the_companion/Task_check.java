@@ -21,6 +21,7 @@ import java.util.HashMap;
 public class Task_check extends AppCompatActivity {
     TextView taskDescription;
     String compulsion,taskid;
+    TextView warning;
     Task task;
     private FirebaseFirestore db;
 
@@ -32,17 +33,16 @@ public class Task_check extends AppCompatActivity {
         this.db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Tasks");
 
-
+        warning = findViewById(R.id.congratz_text);
         String desc = getIntent().getSerializableExtra("TaskDescription").toString();
         taskid = getIntent().getSerializableExtra("TaskId").toString();
+        this.compulsion = getIntent().getSerializableExtra("Compulsion").toString();
         task = new Task(taskid,desc);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            this.compulsion = extras.getString("task_compulsion","task");
-        }
-        task.setCompulsioncheck(this.compulsion);
 
-        //task.setCompulsioncheck(Long.parseLong(this.compulsion));
+        task.setCompulsioncheck(this.compulsion);
+        if(Integer.parseInt(this.compulsion) > 3){
+            warning.setText("Hey you have checked this task " + this.compulsion + " times!" + " Have a coffee!");
+        }
         taskDescription = findViewById(R.id.task_description);
         taskDescription.setText(desc);
         return_dash(collectionReference);
@@ -71,7 +71,7 @@ public class Task_check extends AppCompatActivity {
 
         HashMap<String, Object> data = new HashMap<>();
         data.put("task_compulsion",compulsion);
-        data.put("taskId", taskid);
+
         collectionReference
                 .document(taskid)
                 .update(data)
