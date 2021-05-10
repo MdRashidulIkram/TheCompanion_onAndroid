@@ -36,6 +36,7 @@ public class AddTaskActivity extends AppCompatActivity {
     ListView list;
     ArrayList<Task> tasksList = new ArrayList<>();
     FirebaseFirestore db;
+    ImageView chart;
     public static Task task = new Task();
 
 
@@ -130,6 +131,17 @@ public class AddTaskActivity extends AppCompatActivity {
 
         nextTaskPage();
         goProfile();
+        goChart();
+    }
+
+    private void goChart() {
+        chart = findViewById(R.id.chart_icon);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddTaskActivity.this, Chart.class));
+            }
+        });
     }
 
     private void goProfile(){

@@ -47,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster"
+        android:textSize="30sp"
         android:text="@string/task_description"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/view3"
@@ -56,35 +57,37 @@
 
     <ImageView
         android:id="@+id/task_image"
-        android:layout_width="360dp"
-        android:layout_height="292dp"
+        android:layout_width="356dp"
+        android:layout_height="327dp"
         android:contentDescription="@string/task_image"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.071"
+        app:layout_constraintVertical_bias="0.454"
         tools:srcCompat="@drawable/farshed" />
 
     <TextView
         android:id="@+id/congratz_text"
-        android:layout_width="350dp"
-        android:layout_height="113dp"
+        android:layout_width="351dp"
+        android:layout_height="77dp"
+        android:textSize="28sp"
         android:fontFamily="@font/almendra_bold"
         android:text="@string/congratulation_the_task_is_completed"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#058F0A"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/task_image"
         app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/task_image"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintTop_toTopOf="@+id/view3" />
 
     <TextView
         android:id="@+id/time_stamp_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="336dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="88dp"
         android:fontFamily="@font/bungee_inline"
         android:text="@string/time_of_completion_10_00am_5_7_2021"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -92,8 +95,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/congratz_text"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintTop_toBottomOf="@+id/task_image"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
