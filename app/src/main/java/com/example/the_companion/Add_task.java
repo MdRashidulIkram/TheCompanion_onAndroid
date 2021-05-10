@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -53,6 +54,7 @@ public class Add_task extends AppCompatActivity {
     private Bitmap bitmap;
     private boolean picTaken;
     private Uri imageUri;
+    private String image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +100,8 @@ public class Add_task extends AppCompatActivity {
                 data.put("task_description", description);
                 data.put("task_id", taskId);
                 data.put("task_time", dtf.format(now));
-                data.put("image_path", filePath);
+                //data.put("image_path", filePath);
+                data.put("task_photo", image);
                 db.collection("Tasks").document(taskId)
                         .set(data)
                         .addOnSuccessListener(aVoid -> Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
@@ -141,6 +144,8 @@ public class Add_task extends AppCompatActivity {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             this.bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
             byte bb[] = bytes.toByteArray();
+            String temp= Base64.encodeToString(bb, Base64.DEFAULT);
+            this.image = temp;
             this.imageUri = data.getData();
             uploadPicture(bb);
         }

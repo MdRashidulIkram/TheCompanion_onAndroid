@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -50,8 +51,7 @@ public class Task_check extends AppCompatActivity {
         taskid = getIntent().getSerializableExtra("TaskId").toString();
         this.compulsion = getIntent().getSerializableExtra("Compulsion").toString();
         String timestamp = getIntent().getSerializableExtra("TaskTime").toString();
-        String filepath = getIntent().getSerializableExtra("TaskImage").toString();
-        Snackbar.make(findViewById(R.id.task_image), filepath, Snackbar.LENGTH_LONG);
+        String image = getIntent().getSerializableExtra("TaskImage").toString();
 
         task = new Task(taskid,desc);
 
@@ -63,6 +63,17 @@ public class Task_check extends AppCompatActivity {
         taskDate = findViewById(R.id.time_stamp_text);
         taskDescription.setText(desc);
 
+        try {
+            byte[] encodeByte = Base64.decode(image, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            taskImageView.setImageBitmap(bitmap);
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+
+        /*
         //Toast.makeText(Task_check.this, filepath, Toast.LENGTH_LONG).show();
         StorageReference imgStorageReference = FirebaseStorage.getInstance().getReference().child("images/");
 
@@ -83,7 +94,7 @@ public class Task_check extends AppCompatActivity {
                         }
                     });
 
-
+        */
         if (!timestamp.equals(null)){
             taskDate.setText(timestamp);
         }
