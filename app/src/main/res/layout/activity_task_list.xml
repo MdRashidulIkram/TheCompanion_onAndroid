@@ -5,15 +5,28 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Dashboard"
+        android:textAlignment="center"
+        android:textSize="38sp"
+        android:fontFamily="@font/lobster"
+        android:background="#0cd490"
+        android:backgroundTint="#0cd490" />
+
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="429dp"
+        android:layout_height="445dp"
+        android:layout_alignBottom="@+id/textView10"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="13dp"
-        android:layout_marginBottom="160dp" />
+        android:layout_marginBottom="134dp" />
 
     <TextView
         android:id="@+id/taskList"
@@ -24,9 +37,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="66dp"
         android:layout_marginEnd="133dp"
-        android:layout_marginBottom="596dp"
+        android:layout_marginBottom="611dp"
         android:fontFamily="@font/almendra"
         android:gravity="center"
         android:text=" Task List"
@@ -52,11 +65,15 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/addtaskbutton"
-        android:layout_marginBottom="10dp"
+        android:layout_alignStart="@+id/listView"
+        android:layout_alignEnd="@+id/listView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="101dp"
         android:fontFamily="@font/lobster"
         android:text=" Add"
+        android:textAlignment="center"
         android:textColor="#3F51B5"
         android:textSize="25sp" />
 
@@ -73,35 +90,31 @@
         android:textColor="#4CAF50"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:fontFamily="@font/lobster"
-        android:layout_height="60dp"
-        android:background="#0cd490"
-        android:gravity="center"
-        android:text="Dashboard"
-        android:textColor="#0C0A0A"
-        android:textSize="40sp" />
-
-    <ImageView
-        android:id="@+id/home_icon"
-        android:layout_width="59dp"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="20dp"
-        app:srcCompat="@drawable/icon_home2" />
-
     <ImageView
         android:id="@+id/user_icon"
         android:layout_width="59dp"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="40dp"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="48dp"
         app:srcCompat="@drawable/icon_user2" />
+
+    <ImageView
+        android:id="@+id/chart_icon"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:layout_alignTop="@+id/addtaskbutton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="336dp"
+        android:layout_marginBottom="46dp"
+        android:layout_toStartOf="@+id/addtaskbutton"
+        app:srcCompat="@drawable/graph" />
 
 
 </RelativeLayout>

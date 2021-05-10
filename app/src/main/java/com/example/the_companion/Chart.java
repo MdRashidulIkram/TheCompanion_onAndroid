@@ -96,10 +96,10 @@ public class Chart extends AppCompatActivity {
         });
 
 
-        for (int i = 0; i < tasksList.size(); i++) {
-            entries.add(new PieEntry((float) Integer.valueOf(tasksList.get(i).getCompulsioncheck())
-                    / this.compulsionCount, tasksList.get(i).getTaskDescription()));
-        }
+//        for (int i = 0; i < tasksList.size(); i++) {
+//            entries.add(new PieEntry((float) Integer.valueOf(tasksList.get(i).getCompulsioncheck())
+//                    / this.compulsionCount, tasksList.get(i).getTaskDescription()));
+//        }
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {

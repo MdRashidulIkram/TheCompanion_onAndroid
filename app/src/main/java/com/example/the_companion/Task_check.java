@@ -57,7 +57,7 @@ public class Task_check extends AppCompatActivity {
 
         task.setCompulsioncheck(this.compulsion);
         if(Integer.parseInt(this.compulsion) > 3){
-            warning.setText("Hey you have checked this task " + this.compulsion + " times!" + " Have a coffee!");
+            warning.setText("Relax, you have checked this task " + this.compulsion + " times!" + " Have a coffee!");
         }
         taskDescription = findViewById(R.id.task_description);
         taskDate = findViewById(R.id.time_stamp_text);
