@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -34,6 +35,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -46,11 +48,13 @@ public class Add_task extends AppCompatActivity {
     EditText taskDescription;
     StorageReference storageReference;
     FirebaseStorage storage;
-    private Uri filePath;
+    private String filePath;
 
     FirebaseFirestore db;
     private Bitmap bitmap;
     private boolean picTaken;
+    private Uri imageUri;
+    private String image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +100,8 @@ public class Add_task extends AppCompatActivity {
                 data.put("task_description", description);
                 data.put("task_id", taskId);
                 data.put("task_time", dtf.format(now));
+                //data.put("image_path", filePath);
+                data.put("task_photo", image);
                 db.collection("Tasks").document(taskId)
                         .set(data)
                         .addOnSuccessListener(aVoid -> Snackbar.make(v, "Successfully added to firebase", Snackbar.LENGTH_LONG)
@@ -130,73 +136,49 @@ public class Add_task extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 100){
+        if(requestCode == 100) {
             this.bitmap = (Bitmap) data.getExtras().get("data");
             this.picTaken = true;
             camlogo.setImageBitmap(bitmap);
-            if (filePath != null) {
-                ProgressDialog progressDialog
-                        = new ProgressDialog(this);
-                progressDialog.setTitle("Uploading...");
-                progressDialog.show();
-                filePath = data.getData();
-                // Defining the child of storageReference
-                StorageReference ref
-                        = storageReference.child(
-                        "images/"
-                                + UUID.randomUUID().toString());
-
-                // adding listeners on upload
-                // or failure of image
-                ref.putFile(filePath)
-                        .addOnSuccessListener(
-                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                    @Override
-                                    public void onSuccess(
-                                            UploadTask.TaskSnapshot taskSnapshot) {
-
-                                        // Image uploaded successfully
-                                        // Dismiss dialog
-                                        progressDialog.dismiss();
-                                        Toast.makeText(Add_task.this, "Image Uploaded!!", Toast.LENGTH_SHORT)
-                                                .show();
-                                    }
-                                })
-
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-
-                                // Error, Image not uploaded
-                                progressDialog.dismiss();
-                                Toast
-                                        .makeText(Add_task.this,
-                                                "Failed " + e.getMessage(),
-                                                Toast.LENGTH_SHORT)
-                                        .show();
-                            }
-                        })
-                        .addOnProgressListener(
-                                new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                    // Progress Listener for loading
-                                    // percentage on the dialog box
-                                    @Override
-                                    public void onProgress(
-                                            UploadTask.TaskSnapshot taskSnapshot) {
-                                        double progress
-                                                = (100.0
-                                                * taskSnapshot.getBytesTransferred()
-                                                / taskSnapshot.getTotalByteCount());
-                                        progressDialog.setMessage(
-                                                "Uploaded "
-                                                        + (int) progress + "%");
-                                    }
-                                });
-            }
+             // upload to firebase
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            this.bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+            byte bb[] = bytes.toByteArray();
+            String temp= Base64.encodeToString(bb, Base64.DEFAULT);
+            this.image = temp;
+            this.imageUri = data.getData();
+            uploadPicture(bb);
         }
     }
+
+    private void uploadPicture(byte[] bb) {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Image being uploaded");
+        pd.show();
+        final String key = UUID.randomUUID().toString();
+
+        StorageReference storageReference = this.storageReference.child("images/" + key + ".jpg");
+        this.filePath = "images/" + key + ".jpg";
+        storageReference.putBytes(bb)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        pd.dismiss();
+
+                        Snackbar.make(findViewById(R.id.view4), "Image uploaded", Snackbar.LENGTH_LONG);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener(){
+                   @Override
+                   public void onFailure(@NonNull Exception e){
+                       pd.dismiss();
+                       Snackbar.make(findViewById(R.id.view4), "Image Failed to upload", Snackbar.LENGTH_LONG);
+
+                   }
+                });
+
+    }
+
     private void configureNextAddtask(){
         ImageView nextAddtask = (ImageView) findViewById(R.id.user_icon);
         nextAddtask.setOnClickListener(new View.OnClickListener() {
