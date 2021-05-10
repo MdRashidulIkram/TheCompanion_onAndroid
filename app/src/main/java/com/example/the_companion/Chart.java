@@ -29,9 +29,7 @@ public class Chart extends AppCompatActivity {
     private PieChart pieChart;
     FirebaseFirestore db;
     Integer compulsionCount;
-
-    ArrayList<PieEntry> entries = new ArrayList<>();
-    ArrayList<Task> tasksList = new ArrayList<>();
+    int compulsion = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +39,9 @@ public class Chart extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         final CollectionReference itemCollectionReference = db.collection("Tasks");
-
         pieChart = findViewById(R.id.activity_main_piechart);
         setupPieChart();
-        this.compulsionCount = loadPieChartData(itemCollectionReference);
+        loadPieChartData(itemCollectionReference);
 
 
     }
@@ -64,10 +61,14 @@ public class Chart extends AppCompatActivity {
         l.setDrawInside(false);
         l.setEnabled(true);
     }
-
-    private Integer loadPieChartData(CollectionReference itemCollectionReference) {
-
-        final Integer[] compulsion = {null};
+    private void loadPieChartData(CollectionReference itemCollectionReference) {
+        ArrayList<PieEntry> entries = new ArrayList<>();
+        ArrayList<Task> tasksList = new ArrayList<>();
+        entries.add(new PieEntry(0.2f, "Lock the door"));
+        entries.add(new PieEntry(0.15f, "car door"));
+        entries.add(new PieEntry(0.10f, "turn off faucet"));
+        entries.add(new PieEntry(0.25f, "turn off the oven"));
+        entries.add(new PieEntry(0.3f, "Beating Farshed"));
 
         itemCollectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
 
@@ -82,7 +83,9 @@ public class Chart extends AppCompatActivity {
                         Log.d("Sample",String.valueOf(doc.getData().get("task_id")));
                         String taskCompulsion = (String) doc.getData().get("task_compulsion");
                         String description = (String) doc.getData().get("task_description");
-                        compulsion[0] += Integer.valueOf(taskCompulsion);
+                        if (taskCompulsion != null){
+                            compulsion += Integer.parseInt(taskCompulsion);
+                        }
                         Task task = new Task();
                         task.setTaskDescription(description);
                         task.setCompulsioncheck(taskCompulsion);
@@ -92,18 +95,11 @@ public class Chart extends AppCompatActivity {
             }
         });
 
-        return compulsion[0];
-    }
 
-    private void setUpPieChart(){
-        for (int i = 0; i < tasksList.size(); i++){
-            entries.add(new PieEntry((float)Integer.valueOf(tasksList.get(i).getCompulsioncheck())/ this.compulsionCount, tasksList.get(i).getTaskDescription()));
+        for (int i = 0; i < tasksList.size(); i++) {
+            entries.add(new PieEntry((float) Integer.valueOf(tasksList.get(i).getCompulsioncheck())
+                    / this.compulsionCount, tasksList.get(i).getTaskDescription()));
         }
-//        entries.add(new PieEntry(0.2f, "Lock the door"));
-//        entries.add(new PieEntry(0.15f, "car door"));
-//        entries.add(new PieEntry(0.10f, "turn off faucet"));
-//        entries.add(new PieEntry(0.25f, "turn off the oven"));
-//        entries.add(new PieEntry(0.3f, "Beating Farshed"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
