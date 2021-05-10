@@ -68,7 +68,9 @@ public class AddTaskActivity extends AppCompatActivity {
                         String description = (String) doc.getData().get("task_description");
                         String compulsioncounter = (String) doc.getData().get("task_compulsion");
                         String taskDate = (String)doc.getData().get("task_time");
+                        String filepath = (String)doc.getData().get("image_path");
                         Task task = new Task(taskId, description);
+                        task.setTaskImage(filepath);
                         task.setDateAndTime(taskDate);
                         task.setCompulsioncheck(compulsioncounter);
                         tasksList.add(task);
@@ -122,6 +124,7 @@ public class AddTaskActivity extends AppCompatActivity {
             intent.putExtra("Compulsion",String.valueOf(Integer.parseInt(this.task.getCompulsioncheck())+1));
             intent.putExtra("TaskId",this.task.getTaskId());
             intent.putExtra("TaskTime", this.task.getDateAndTime());
+            intent.putExtra("TaskImage", this.task.getTaskImage());
             startActivity(intent);
         });
 

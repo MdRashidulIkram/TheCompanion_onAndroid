@@ -4,18 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Task_check extends AppCompatActivity {
@@ -24,6 +34,7 @@ public class Task_check extends AppCompatActivity {
     TextView warning;
     Task task;
     private FirebaseFirestore db;
+    ImageView taskImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +44,15 @@ public class Task_check extends AppCompatActivity {
         this.db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Tasks");
 
+        taskImageView = findViewById(R.id.task_image);
         warning = findViewById(R.id.congratz_text);
         String desc = getIntent().getSerializableExtra("TaskDescription").toString();
         taskid = getIntent().getSerializableExtra("TaskId").toString();
         this.compulsion = getIntent().getSerializableExtra("Compulsion").toString();
         String timestamp = getIntent().getSerializableExtra("TaskTime").toString();
+        String filepath = getIntent().getSerializableExtra("TaskImage").toString();
+        Snackbar.make(findViewById(R.id.task_image), filepath, Snackbar.LENGTH_LONG);
+
         task = new Task(taskid,desc);
 
         task.setCompulsioncheck(this.compulsion);
@@ -47,6 +62,28 @@ public class Task_check extends AppCompatActivity {
         taskDescription = findViewById(R.id.task_description);
         taskDate = findViewById(R.id.time_stamp_text);
         taskDescription.setText(desc);
+
+        //Toast.makeText(Task_check.this, filepath, Toast.LENGTH_LONG).show();
+        StorageReference imgStorageReference = FirebaseStorage.getInstance().getReference().child("images/");
+
+            imgStorageReference.getFile(new File(filepath))
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(Task_check.this, "Image received", Toast.LENGTH_LONG).show();
+                            Bitmap bitmap = BitmapFactory.decodeFile(filepath);
+                            taskImageView.setImageBitmap(bitmap);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener(){
+                        @Override
+                        public void onFailure(@NonNull Exception e){
+                            Toast.makeText(Task_check.this, "Image failed", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+
+
         if (!timestamp.equals(null)){
             taskDate.setText(timestamp);
         }
